@@ -106,6 +106,7 @@ class TextForminatorField extends StatefulWidget {
     this.textCapitalization = TextCapitalization.none,
     super.key,
     this.validator,
+    this.style,
     this.focusNode,
     this.controller,
     this.keyboardType,
@@ -364,6 +365,9 @@ class TextForminatorField extends StatefulWidget {
   /// The initial value of the text field.
   final String? initialValue;
 
+  /// The style of the text in the field.
+  final TextStyle? style;
+
   @override
   State<TextForminatorField> createState() => TextForminatorFieldState();
 }
@@ -525,6 +529,7 @@ class TextForminatorFieldState extends State<TextForminatorField> {
       canRequestFocus: widget.canRequestFocus,
       textCapitalization: widget.textCapitalization,
       textInputAction: widget.textInputAction,
+      style: widget.style,
       onChanged: (value) {
         widget.onChanged?.call(value);
         handleOnChanged(value);
